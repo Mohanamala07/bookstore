@@ -29,7 +29,7 @@ const Navbar = () => {
                 <div className="container-fluid d-flex justify-content-between align-items-center">
                     <div className="navbar-brand d-flex align-items-center">
                         <img src={Logo} alt="Logo" className="navbar-logo" />
-                        <span className="navbar-text">heloo</span>
+                        <span className="navbar-text">helo</span>
                     </div>
                     <div className="navItems">
                         <ul className="navbar-nav navbar-links d-flex align-items-center">
