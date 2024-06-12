@@ -1,32 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 
-const Dropdown = ({type,title,base,links,func}) => {
-
-  let class_name
-  if(type==="1"){
-    class_name="nav-link"
-  }else if(type==="2"){
-    class_name="nav-link"
-  }else if(type==="3"){
-    class_name="nav-link link"
-  }else if(type==="4"){
-    class_name="nav-link login_button "
-  }
-
-
-
-  
+const Dropdown = ({ title, links }) => {
   return (
-    <div className="dropdown">
-        <li className='nav-item'>
-            <Link className={class_name} onClick={links.length===0? func:null} to={base} aria-current="page">{title}</Link>
-        </li>
-         <div className="dropdown-content">
-            {links.map((item)=><Link onClick={func} key={item.link} to={item.path}>{item.link}</Link>)}
-        </div>
-    </div>
-  )
-}
+    <li className="dropdown">
+      <span className="menu-item">{title}</span>
+      <div className="dropdown-content">
+        {links.map((link, index) => (
+          <a key={index} href={link.path}>{link.link}</a>
+        ))}
+      </div>
+    </li>
+  );
+};
 
-export default Dropdown
+export default Dropdown;
