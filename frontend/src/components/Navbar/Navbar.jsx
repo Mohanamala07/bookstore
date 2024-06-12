@@ -1,62 +1,97 @@
-import React, { useState, useEffect } from 'react';
-import './Navbar.css';
-import { navItems } from '../../constants/path.js';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Dropdown } from '../../widgets';
-import Logo from '../../assets/books.png';
+import { navItems } from '../../constants/path.js';
+import login from '../../assets/login.webp';
+import './Navbar.css';
 
 const Navbar = () => {
-    const togglemenu = () => {
-        document.querySelector('.offcanvas-collapse').classList.toggle('open');
-    };
-
-    const [screen_width, setScreen_width] = useState(window.innerWidth);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setScreen_width(window.innerWidth);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    return (
-        <div className='navigation'>
-            <nav className="navbar navbar-expand-xl navbar-dark" aria-label="Main navigation">
-                <div className="container-fluid d-flex justify-content-between align-items-center">
-                    <div className="navbar-brand d-flex align-items-center">
-                        <img src={Logo} alt="Logo" className="navbar-logo" />
-                        <span className="navbar-text">hi</span>
-                    </div>
-                    <div className="navItems">
-                        <ul className="navbar-nav navbar-links d-flex align-items-center">
-                            {navItems.map((item) => (
-                                <Dropdown 
-                                    func={togglemenu} 
-                                    key={item.id} 
-                                    type={item.type} 
-                                    title={item.title} 
-                                    base={item.basepath} 
-                                    links={item.links} 
-                                />
-                            ))}
-                            {/* Conditionally render the search box */}
-                            {/* {navItems.find(item => item.type === "2") && (
-                               <form action="/search" method="GET" className="navbar-form">
-                               <input type="text" name="query" placeholder="Search..." className="search-input" />
-                               <button type="submit" className="search-button">Search</button>
-                           </form>
-                           
-                            )} */}
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+  return (
+    <header>
+      <div className="responsive">Get Rs50 off</div>
+      <div className="top-bar">
+        <div className="promo">Get Rs50 extra off, Use Code : APP50 GET APP</div>
+        <div className="top-bar-links">
+          <a href="#">Lock The Box</a>
+          <a href="#">Wholesale</a>
+          <a href="tel:9050111218">Call: 90501 11218</a>
+          <a href="#">Track Order</a>
         </div>
-    );
-}
+      </div>
+      
+      <nav className="navbar">
+       <div className="logo">
+          <h1>BookBox</h1>
+        </div>
+        <div className="search-bar">
+          <input type="text" placeholder="Search by ISBN, Title, Author" />
+          <button>🔍</button>
+        </div>
+      <div className="login">
+          <img src={login} alt="Login" />
+          <button>Login</button>
+        </div>
+        
+      </nav>
+      <div className="navbar_responsive">
+      <div className="responsive_logo">
+          <h1>BookBox</h1>
+        </div>
+        <div className="responsive_search-bar">
+          <input type="text" placeholder="Search by ISBN, Title, Author" />
+          <button>🔍</button>
+        </div>
+      </div>
+      
+      <div className="menubar">
+        <ul className="menu-bar">
+          {navItems.map((item) => (
+            <li key={item.id}>
+              {item.title === "Shop By Category" ||
+              item.title === "Shop By Store" ||
+              item.title === "Text Books" ||
+              item.title === "Harry Potter" ? (
+                <Dropdown
+                  type={item.type}
+                  title={item.title}
+                  basepath={item.basepath}
+                  links={item.links}
+                />
+              ) : (
+                <Link to={item.basepath} className="non-dropdown-item">
+                  {item.title}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="bottom-nav">
+        <Link to="/home">
+          <span className="icon">🏠</span>
+          <span>Home</span>
+        </Link>
+        <Link to="/categories">
+          <span className="icon">📚</span>
+          <span>Categories</span>
+        </Link>
+        <Link to="/cart">
+          <span className="icon">🛒</span>
+          <span>Cart</span>
+        </Link>
+        <Link to="/store">
+          <span className="icon">🏬</span>
+          <span>Store</span>
+        </Link>
+        <Link to="/more">
+          <span className="icon">⋮</span>
+          <span>More</span>
+        </Link>
+      </div>
+
+    </header>
+  );
+};
 
 export default Navbar;
