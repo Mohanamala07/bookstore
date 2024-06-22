@@ -1,6 +1,12 @@
 import React ,{useEffect}from 'react'
 import { Routes, Route,useLocation } from "react-router-dom";
 import{Navbar} from "./components";
+import{
+  Home,
+  Deal,
+  Comic,
+  Combo
+}from "./pages";
 const App = () => {
   const location = useLocation();
   useEffect(()=>{
@@ -10,6 +16,10 @@ const App = () => {
     <div>
       <Navbar />
       <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/deal" element={<Deal />} />
+      <Route path="/combo" element={<Combo />} />
+      <Route path="/comic" element={<Comic />} />
 
       </Routes>
     </div>
