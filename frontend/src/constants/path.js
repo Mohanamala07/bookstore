@@ -12,6 +12,7 @@ const navItems = [
       { path: "/milestones", link: "Milestones" },
         ],
     },
+    
     {
         id: "2",
         type: "1",
@@ -44,8 +45,10 @@ const navItems = [
         id: "9",
         type: "1",
         title: "Today's Deal",
-        basepath: "javascript:void(0);",
-        links: [],
+        basepath: "/deal",
+        links: [
+            { path: "/deal", link:"Deal"},
+        ],
     },
     {
         id: "10",
