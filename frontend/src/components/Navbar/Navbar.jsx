@@ -28,19 +28,23 @@ const Navbar = () => {
           <input type="text" placeholder="Search by ISBN, Title, Author" />
           <button>🔍</button>
         </div>
-      <div className="login">
+        <div className="login">
           <img src={login} alt="Login" />
           <button>Login</button>
         </div>
-        
       </nav>
+
       <div className="navbar_responsive">
-      <div className="responsive_logo">
+        <div className="responsive_logo">
           <h1>BookBox</h1>
         </div>
         <div className="responsive_search-bar">
           <input type="text" placeholder="Search by ISBN, Title, Author" />
           <button>🔍</button>
+        </div>
+        <div className="login">
+          <img src={login} alt="Login" />
+          <button>Login</button>
         </div>
       </div>
       
@@ -89,7 +93,6 @@ const Navbar = () => {
           <span>More</span>
         </Link>
       </div>
-
     </header>
   );
 };

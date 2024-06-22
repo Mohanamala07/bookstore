@@ -1,0 +1,59 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 3000px;
+    height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: blue;
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    cursor: pointer; /* Add pointer cursor */
+    pointer-events: auto; /* Enable pointer events */
+}
+
+.carousel img.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+    background-color: #717171;
+    transform: scale(1.2);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 375px) {
+    .carousel {
+        display: none; /* Hide carousel on screens smaller than 375px */
+    }
+}
