@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Dropdown ,Card} from '../../widgets';
 
 import { navItems } from '../../constants/path.js';
-import { product } from '../../constants/contentofcard.js';
+import { product1,product2 } from '../../constants/contentofcard.js';
 import login from '../../assets/login.webp';
 import './Navbar.css';
 
@@ -91,6 +91,8 @@ const Navbar = () => {
           <span>More</span>
         </Link>
       </div>
+      
+     
       
       
     </header>

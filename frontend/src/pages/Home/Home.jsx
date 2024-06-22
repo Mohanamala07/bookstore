@@ -20,7 +20,7 @@ function Home() {
             
         </div>
         <div className="App1">
-        
+        <div className='card_head'>Fiction</div>
         <div className="cards-container">
           {product1.map((product1, index) => (
             <Card key={index} product={product1} />
