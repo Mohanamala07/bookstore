@@ -88,9 +88,22 @@ const Navbar = () => {
         </Link>
       </div>
       
-     
+      <div className="App">
+      <div className='card_head'>Fiction</div>
+        <div className="cards-container">
+         
+          {product1.map((product1, index) => (
+            <Card key={index} product={product1} />
+          ))}
+        </div>
+        <div className='card_head'>Non-Fiction</div>
+        <div className="cards-container">
+          {product2.map((product2, index) => (
+            <Card key={index} product={product2} />
+          ))}
+        </div>
         
-      
+      </div>
       
     </header>
   );
