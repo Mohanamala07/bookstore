@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Dropdown ,Card} from '../../widgets';
 
 import { navItems } from '../../constants/path.js';
-import { product } from '../../constants/contentofcard.js';
+import { product1,product2 } from '../../constants/contentofcard.js';
 import login from '../../assets/login.webp';
 import './Navbar.css';
 
@@ -89,12 +89,20 @@ const Navbar = () => {
       </div>
       
       <div className="App">
-        
+      <div className='card_head'>Fiction</div>
         <div className="cards-container">
-          {product.map((product, index) => (
-            <Card key={index} product={product} />
+         
+          {product1.map((product1, index) => (
+            <Card key={index} product={product1} />
           ))}
         </div>
+        <div className='card_head'>Non-Fiction</div>
+        <div className="cards-container">
+          {product2.map((product2, index) => (
+            <Card key={index} product={product2} />
+          ))}
+        </div>
+        
       </div>
       
     </header>
