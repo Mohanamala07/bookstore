@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Dropdown } from '../../widgets';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Dropdown ,Card} from '../../widgets';
+
 import { navItems } from '../../constants/path.js';
+import { product } from '../../constants/contentofcard.js';
 import login from '../../assets/login.webp';
 import './Navbar.css';
 
@@ -21,7 +23,7 @@ const Navbar = () => {
       </div>
       
       <nav className="navbar">
-       <div className="logo">
+        <div className="logo">
           <h1>BookBox</h1>
         </div>
         <div className="search-bar">
@@ -33,7 +35,7 @@ const Navbar = () => {
           <button>Login</button>
         </div>
       </nav>
-
+      
       <div className="navbar_responsive">
         <div className="responsive_logo">
           <h1>BookBox</h1>
@@ -52,14 +54,9 @@ const Navbar = () => {
         <ul className="menu-bar">
           {navItems.map((item) => (
             <li key={item.id}>
-              {item.title === "Shop By Category" ||
-              item.title === "Shop By Store" ||
-              item.title === "Text Books" ||
-              item.title === "Harry Potter" ? (
+              {item.type === "dropdown" ? (
                 <Dropdown
-                  type={item.type}
                   title={item.title}
-                  basepath={item.basepath}
                   links={item.links}
                 />
               ) : (
@@ -71,6 +68,7 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+      
       <div className="bottom-nav">
         <Link to="/home">
           <span className="icon">🏠</span>
@@ -93,6 +91,8 @@ const Navbar = () => {
           <span>More</span>
         </Link>
       </div>
+      
+      
     </header>
   );
 };

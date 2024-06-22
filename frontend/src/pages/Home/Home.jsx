@@ -1,6 +1,6 @@
 import React from 'react';
-import { Carousel } from '../../widgets';
-
+import { Carousel,Card } from '../../widgets';
+import { product1,product2 } from '../../constants/contentofcard.js';
 import caurosel5 from '../../assets/caurosel5.jpg';
 import caurosel6 from '../../assets/caurosel6.jpg';
 import caurosel7 from '../../assets/caurosel7.webp';
@@ -14,9 +14,21 @@ function Home() {
     ];
 
     return (
+        <div className="home">
         <div className="App">
             <Carousel images={imageSources} />
+            
         </div>
+        <div className="App1">
+        
+        <div className="cards-container">
+          {product1.map((product1, index) => (
+            <Card key={index} product={product1} />
+          ))}
+        </div>
+      </div>
+      </div>
+      
     );
 }
 
