@@ -1,0 +1,151 @@
+/* src/components/Navbar/Navbar.css */
+
+/* Container for the cards */
+.cards-container {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: nowrap; /* Prevent wrapping to keep cards in a single row */
+    overflow-x: auto; /* Allow horizontal scrolling if cards exceed container width */
+    gap: 30px; /* Space between cards */
+    padding: 20px; /* Reduced padding around the container */
+    justify-content: flex-start; /* Align items at the start */
+  }
+  
+  /* Optional: Hide horizontal scrollbar but allow scrolling */
+  .cards-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Styling for individual cards */
+  .shopping-card {
+    flex: 0 0 auto; /* Cards don't shrink or grow, keep their original size */
+    width: 200px; /* Fixed width for each card */
+    height: 150%; /* Fixed height for each card */
+   
+    
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Space out the elements */
+    align-items: center; /* Center align the elements horizontally */
+    background-color: #fff; /* White background */
+    margin-top: 20px; /* Reduced top margin for each card */
+  
+   
+  }
+  .shopping-card:hover{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    
+  }
+  
+  /* Styling for the product image */
+  .product-image {
+    width: 100%; /* Ensure image fills the width of the card */
+    height: 300px; /* Fixed height for the image */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+    border-radius: 4px; /* Slight rounding of image corners */
+    margin-bottom: 10px; /* Space below the image */
+  }
+  
+  /* Styling for the card details */
+  .card-details {
+    text-align: start;
+    width: 100%; /* Take full width for alignment */
+    padding-left: 10px;
+  }
+  
+  /* Styling for the product title */
+  .product-title {
+    font-size: 1em; /* Adjusted font size */
+    font-weight: bold; /* Make title bold */
+    margin: 5px 0; /* Reduced space around title */
+  }
+  
+  /* Styling for the product description */
+  .product-description {
+    font-size: 0.9em; /* Smaller font for description */
+    color: #555; /* Lighter color for text */
+    margin: 5px 0; /* Reduced space around description */
+  }
+  
+  /* Styling for the product price */
+  .product-price {
+    font-size: 1.2em; /* Adjusted font size for price */
+    color: darkslateblue; /* Darker color for price */
+    margin: 5px 0; /* Reduced space around price */
+  }
+  
+  /* Styling for the add-to-cart button */
+  .add-to-cart-btn {
+    margin-top: 10px; /* Space above the button */
+    padding: 8px 12px; /* Reduced padding for the button */
+    background-color: darkgoldenrod; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Round button corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center; /* Center align button text */
+    font-size: 0.9em; /* Adjust button font size */
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for button hover state */
+  .add-to-cart-btn:hover {
+    background-color: #b8001c; /* Darker red on hover */
+  }
+  .product-rating {
+    display: flex;
+    justify-content: start;
+    margin: 5px 0;
+  }
+  
+  .star {
+    color: gold;
+    margin-right: 3px;
+  }
+  
+  .empty-star {
+    color: lightgray;
+  }
+  
+  
+  
+  .heart-icon {
+    color:gray; /* Red color for the heart icon */
+    font-size: 1.2em; /* Adjust icon size */
+    margin-top: -28px;
+    padding-left: 140px;
+  }
+ 
+  @media (max-width: 480px) {
+    .cards-container {
+        justify-content: flex-start; /* Center the cards horizontally */
+        padding: 10px; /* Reduce padding */
+    }
+    .shopping-card {
+        margin-top: 10px;
+         /* Adjust margin for better spacing */
+    }
+    .product-image {
+        height: 300px; /* Adjust image height to fit within card */
+    }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .cards-container {
+        justify-content: flex-start; /* Align items at the start */
+        padding: 10px; /* Reduce padding */
+    }
+    .shopping-card {
+        margin-top: 15px; /* Adjust margin for better spacing */
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 769px) {
+    .cards-container {
+        justify-content: flex-start; /* Center the cards horizontally */
+    }
+    .shopping-card {
+        margin-top: 20px; /* Keep the top margin consistent */
+    }
+}
