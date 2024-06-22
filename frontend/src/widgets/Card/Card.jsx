@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
+
 import { FaStar, FaRegStar, FaHeart, FaRegHeart } from 'react-icons/fa'; // Import FontAwesome icons
 
 const Card = ({ product }) => {
@@ -18,6 +19,7 @@ const Card = ({ product }) => {
   };
 
   return (
+    
     <div className="shopping-card">
     
       <img src={product.image} alt={product.title} className="product-image" />

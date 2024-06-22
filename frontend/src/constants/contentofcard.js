@@ -7,15 +7,15 @@ import productImage6 from '../assets/image/book6.jpg';
 
 // Add more images as needed
 
-export const product = [
+export const product1 = [
   {
-    image: productImage1,
+    image: productImage2,
     title: 'You Are My Best Wife',
     description: "rating",
     price: 500,
   },
   {
-    image: productImage2,
+    image: productImage1,
     title: 'You Are My Best Wife',
     description: "rating",
     price: 500,
@@ -40,6 +40,44 @@ export const product = [
   },
   {
     image: productImage6,
+    title: 'You Are My Best Wife.',
+    description: "rating",
+    price: 500,
+  },
+]
+export const product2 = [
+  {
+    image: productImage2,
+    title: 'You Are My Best Wife',
+    description: "rating",
+    price: 500,
+  },
+  {
+    image: productImage1,
+    title: 'You Are My Best Wife',
+    description: "rating",
+    price: 500,
+  },
+  {
+    image: productImage1,
+    title: 'You Are My Best Wife',
+    description: "rating",
+    price: 500,
+  },
+  {
+    image: productImage1,
+    title: 'You Are My Best Wife',
+    description: "rating",
+    price: 500,
+  },
+  {
+    image: productImage1,
+    title: 'You Are My Best Wife.',
+    description: "rating",
+    price: 500,
+  },
+  {
+    image: productImage1,
     title: 'You Are My Best Wife.',
     description: "rating",
     price: 500,
