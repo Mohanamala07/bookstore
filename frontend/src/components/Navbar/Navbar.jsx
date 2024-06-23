@@ -1,24 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Dropdown ,Card} from '../../widgets';
-
+import { Dropdown } from '../../widgets';
 import { navItems } from '../../constants/path.js';
-import { product1,product2 } from '../../constants/contentofcard.js';
 import login from '../../assets/login.webp';
+import cart from '../../assets/shopping-bag.webp'; 
+import wishlist from '../../assets/wishlist.webp';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './Navbar.css';
 
 const Navbar = () => {
   return (
     <header>
-      <div className="responsive">Get Rs50 off</div>
+      {/* <div className="responsive">Get Rs50 off</div> */}
       <div className="top-bar">
-        <div className="promo">Get Rs50 extra off, Use Code : APP50 GET APP</div>
+        {/* <div className="promo">Get Rs50 extra off, Use Code : APP50 GET APP</div> */}
         <div className="top-bar-links">
-          <a href="#">Lock The Box</a>
+          <a href="#">Only 99</a>
           <a href="#">Wholesale</a>
           <a href="tel:9050111218">Call: 90501 11218</a>
           <a href="#">Track Order</a>
+          <a href="#">Get Rs50 extra off</a>
         </div>
       </div>
       
@@ -28,11 +30,18 @@ const Navbar = () => {
         </div>
         <div className="search-bar">
           <input type="text" placeholder="Search by ISBN, Title, Author" />
-          <button>🔍</button>
+          <button><i className="fas fa-search"></i></button>
         </div>
-        <div className="login">
-          <img src={login} alt="Login" />
-          <button>Login</button>
+        <div className="account-cart">
+          <div className="account">
+            <img src={login} alt="User Icon" />
+          </div>
+          <div className="cart">
+            <img src={cart} alt="Cart Icon" />
+          </div>
+          <div className="wishlist">
+            <img src={wishlist} alt="wishlist" />
+          </div>
         </div>
       </nav>
       
@@ -42,11 +51,18 @@ const Navbar = () => {
         </div>
         <div className="responsive_search-bar">
           <input type="text" placeholder="Search by ISBN, Title, Author" />
-          <button>🔍</button>
+          <button><i className="fas fa-search"></i></button>
         </div>
-        <div className="login">
-          <img src={login} alt="Login" />
-          <button>Login</button>
+        <div className="account-cart">
+          <div className="account">
+            <img src={login} alt="User Icon" />
+          </div>
+          <div className="cart">
+            <img src={cart} alt="Cart Icon" />
+          </div>
+          <div className="wishlist">
+            <img src={wishlist} alt="wishlist" />
+          </div>
         </div>
       </div>
       
@@ -54,9 +70,14 @@ const Navbar = () => {
         <ul className="menu-bar">
           {navItems.map((item) => (
             <li key={item.id}>
-              {item.type === "dropdown" ? (
+              {item.title === "Shop By Category" ||
+              item.title === "Shop By Store" ||
+              item.title === "Text Books" ||
+              item.title === "Harry Potter" ? (
                 <Dropdown
+                  type={item.type}
                   title={item.title}
+                  basepath={item.basepath}
                   links={item.links}
                 />
               ) : (
@@ -68,7 +89,7 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-      
+
       <div className="bottom-nav">
         <Link to="/home">
           <span className="icon">🏠</span>
@@ -91,10 +112,6 @@ const Navbar = () => {
           <span>More</span>
         </Link>
       </div>
-      
-     
-      
-      
     </header>
   );
 };
