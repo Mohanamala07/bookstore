@@ -1,0 +1,73 @@
+/* Comic.css */
+
+/* Container for the entire Comic page */
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color:  rgb(244, 240, 232);
+}
+
+/* Header styling */
+.comics_head {
+    background-color: darkgoldenrod;
+    height: 100px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container for the main content: FilterBox and cards */
+.comics-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px; /* Space between filter box and cards */
+}
+
+/* FilterBox styling */
+.FilterBox {
+    flex: 0 0 200px; /* Fixed width for the filter box */
+    border: none; /* Remove any border */
+    padding: 10px; /* Add some padding for better spacing */
+    background-color: white; /* Optional: Background color for the FilterBox */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow to differentiate from background */
+    border-radius: 4px; /* Optional: Slight rounding for better aesthetics */
+}
+
+/* Cards container specific to Comic page */
+.comics_card .cards-container {
+    flex: 1; /* Takes the remaining space */
+    display: flex;
+    flex-wrap: wrap; /* Enables wrapping */
+    gap: 20px; /* Space between cards */
+}
+
+/* Make sure each card takes appropriate space on the Comic page */
+.comics_card .cards-container .Card {
+    flex: 1 1 calc(33.333% - 20px); /* Adjusts the size to fit 3 cards per row, considering the gap */
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    /* Adjust layout for smaller screens */
+    .comics-content {
+        flex-direction: column;
+    }
+    
+    .FilterBox {
+        flex: none;
+        width: 100%;
+    }
+    
+    .comics_card .cards-container .Card {
+        flex: 1 1 calc(100% - 20px); /* Full width for cards on smaller screens */
+    }
+}
