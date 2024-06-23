@@ -1,0 +1,86 @@
+/* FilterBox.css */
+
+.filter-box {
+    border: 0px solid #ccc; /* No border needed */
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color:rgb(244, 240, 232);
+   
+}
+
+.filter-section {
+    margin-bottom: 15px;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filter-section input,
+.filter-section select {
+    width: 100%;
+    padding: 10px; /* Increase padding for a better look */
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Make inputs and selects oval shaped */
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease-in-out; /* Smooth border change on focus */
+}
+
+.filter-section input:focus,
+.filter-section select:focus {
+    border-color: #007BFF; /* Optional: change border color on focus */
+}
+
+.price-range,
+.rating-range {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-range input,
+.rating-range input {
+    width: 45%;
+    padding: 10px; /* Increase padding for a better look */
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Make inputs oval shaped */
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease-in-out; /* Smooth border change on focus */
+}
+
+.price-range input:focus,
+.rating-range input:focus {
+    border-color: #007BFF; /* Optional: change border color on focus */
+}
+
+#publication-date {
+    width: 100%;
+    padding: 10px; /* Increase padding for a better look */
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Make date input oval shaped */
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease-in-out; /* Smooth border change on focus */
+}
+
+#publication-date:focus {
+    border-color: #007BFF; /* Optional: change border color on focus */
+}
+
+/* Specific styling for the price range slider */
+.price-range-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
