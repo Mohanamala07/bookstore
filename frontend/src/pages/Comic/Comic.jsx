@@ -3,7 +3,7 @@ import { FilterBox } from '../../components';
 import { Card } from '../../widgets';
 import { product1, product2 } from '../../constants/contentofcard.js';
 import './Comic.css';
-
+//comic
 const Comic = () => {
     const [filters, setFilters] = useState({});
 
