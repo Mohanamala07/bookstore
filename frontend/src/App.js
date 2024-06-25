@@ -1,6 +1,6 @@
 import React ,{useEffect}from 'react'
 import { Routes, Route,useLocation } from "react-router-dom";
-import{Navbar} from "./components";
+import{Footer, Navbar} from "./components";
 import{
   Home,
   Deal,
@@ -14,6 +14,7 @@ const App = () => {
   },[location])
   return (
     <div>
+
       <Navbar />
       <Routes>
       <Route path="/" element={<Home />} />
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/comic" element={<Comic />} />
 
       </Routes>
+      <Footer />
     </div>
   );
 };

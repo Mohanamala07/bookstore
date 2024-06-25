@@ -9,7 +9,7 @@ const Comic = () => {
 
     const handleFilterChange = (newFilters) => {
         setFilters(newFilters);
-        // You can add code here to fetch/filter your books based on `newFilters`
+        
         console.log(newFilters);
     };
 
