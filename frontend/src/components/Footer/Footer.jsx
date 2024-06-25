@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="footer-top">
                 <div className="footer-description">
                     <h2>BookBox</h2>
-                    <p>Embark on a literary journey with Kitabay, the online book wonderland nestled in Jaipur since 2018. We take pride in being sustainable and eco-friendly - from new releases to treasured pre-loved books. And wait, there's more! Dive into the sea of bookish merchandise that'll make any bookworm's heart flutter. Join Kitabay and let sustainable reading ignite your imagination!</p>
+                    <p>Embark on a literary journey with book, the online book wonderland nestled in Jaipur since 2018. We take pride in being sustainable and eco-friendly - from new releases to treasured pre-loved books. And wait, there's more! Dive into the sea of bookish merchandise that'll make any bookworm's heart flutter. Join Kitabay and let sustainable reading ignite your imagination!</p>
                 </div>
                 <div className="footer-links">
                     <div className="footer-column">
@@ -23,7 +23,7 @@ const Footer = () => {
                         <h4>Shop Now</h4>
                         <ul>
                             <li><a href="#books">Books</a></li>
-                            <li><a href="#mystery-box">Mystery Box</a></li>
+                            <li><a href="#mystery-box"> Box</a></li>
                             <li><a href="#merchandise">Merchandise</a></li>
                             <li><a href="#gifting">Gifting</a></li>
                             <li><a href="#bulk">Bulk</a></li>
