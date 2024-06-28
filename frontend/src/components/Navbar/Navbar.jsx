@@ -1,40 +1,69 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Dropdown } from '../../widgets';
 import { navItems } from '../../constants/path.js';
-import login from '../../assets/login.webp';
+import account from '../../assets/account.webp';
 import cart from '../../assets/shopping-bag.webp'; 
 import wishlist from '../../assets/wishlist.webp';
+import freedelivery from '../../assets/freedelivery.webp';
+import originalbooks from '../../assets/originalbooks.webp';
+import { Sidebar } from '../../components/'; // Ensure correct import path
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './Navbar.css';
 
 const Navbar = () => {
+  const [searchBarVisible, setSearchBarVisible] = useState(false);
+  const [expandedSearch, setExpandedSearch] = useState(false);
+
+  const toggleSearchBar = () => {
+    setSearchBarVisible(!searchBarVisible);
+    if (window.innerWidth <= 832) {
+      setExpandedSearch(!expandedSearch);
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 832) {
+        setExpandedSearch(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <header>
-      {/* <div className="responsive">Get Rs50 off</div> */}
+      <Sidebar />
       <div className="top-bar">
-        {/* <div className="promo">Get Rs50 extra off, Use Code : APP50 GET APP</div> */}
         <div className="top-bar-links">
-          <a href="#">Only 99</a>
-          <a href="#">Wholesale</a>
-          <a href="tel:9050111218">Call: 90501 11218</a>
-          <a href="#">Track Order</a>
-          <a href="#">Get Rs50 extra off</a>
+          <a href="#">
+            <img src={freedelivery} alt="Free Delivery" /> Free Delivery
+          </a>
+          <a href="#">
+            <img src={originalbooks} alt="Original Books" /> Original Books only
+          </a>
+          <a href="#">
+            <img src={freedelivery} alt="Get Rs50 extra off" /> Get Rs50 extra off
+          </a>
         </div>
       </div>
-      
+
       <nav className="navbar">
         <div className="logo">
-          <h1>BookBox</h1>
+          <h1>
+            <span className="red-letter">B</span>ookBox
+          </h1>
         </div>
-        <div className="search-bar">
-          <input type="text" placeholder="Search by ISBN, Title, Author" />
-          <button><i className="fas fa-search"></i></button>
+        <div className={`search-bar ${expandedSearch ? 'expanded' : ''}`}>
+          <input type="text" placeholder="Search by ISBN, Title, Author" id="search-input" />
+          <div className="search_img" onClick={toggleSearchBar}>
+            <button><i className="fas fa-search"></i></button>
+          </div>
         </div>
         <div className="account-cart">
           <div className="account">
-            <img src={login} alt="User Icon" />
+            <img src={account} alt="account" />
           </div>
           <div className="cart">
             <img src={cart} alt="Cart Icon" />
@@ -44,28 +73,27 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      
+
       <div className="navbar_responsive">
-        <div className="responsive_logo">
-          <h1>BookBox</h1>
+        <div className="logo">
+          <h1>
+            <span className="red-letter">B</span>ookBox
+          </h1>
         </div>
-        <div className="responsive_search-bar">
-          <input type="text" placeholder="Search by ISBN, Title, Author" />
-          <button><i className="fas fa-search"></i></button>
-        </div>
-        <div className="account-cart">
-          <div className="account">
-            <img src={login} alt="User Icon" />
-          </div>
-          <div className="cart">
-            <img src={cart} alt="Cart Icon" />
-          </div>
-          <div className="wishlist">
-            <img src={wishlist} alt="wishlist" />
-          </div>
+        <label htmlFor="check" id="btn">
+          <i className="fas fa-bars"></i>
+        </label>
+        <div className="wishlist">
+          <img src={wishlist} alt="wishlist" />
         </div>
       </div>
-      
+      <div className={`responsive_search-bar ${expandedSearch ? 'expanded' : ''}`}>
+        <input type="text" placeholder="Search by ISBN, Title, Author" />
+        <div className="search_img">
+          <button><i className="fas fa-search"></i></button>
+        </div>
+      </div>
+
       <div className="menubar">
         <ul className="menu-bar">
           {navItems.map((item) => (
@@ -103,9 +131,9 @@ const Navbar = () => {
           <span className="icon">🛒</span>
           <span>Cart</span>
         </Link>
-        <Link to="/store">
-          <span className="icon">🏬</span>
-          <span>Store</span>
+        <Link to="/account">
+          <img src={account} alt="Account" />
+          <span>My Account</span>
         </Link>
         <Link to="/more">
           <span className="icon">⋮</span>
