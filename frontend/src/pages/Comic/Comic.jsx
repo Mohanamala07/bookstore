@@ -3,13 +3,13 @@ import { FilterBox } from '../../components';
 import { Card } from '../../widgets';
 import { product1, product2 } from '../../constants/contentofcard.js';
 import './Comic.css';
-
+//comic
 const Comic = () => {
     const [filters, setFilters] = useState({});
 
     const handleFilterChange = (newFilters) => {
         setFilters(newFilters);
-        // You can add code here to fetch/filter your books based on `newFilters`
+        
         console.log(newFilters);
     };
 
