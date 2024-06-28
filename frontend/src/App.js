@@ -1,6 +1,6 @@
 import React ,{useEffect}from 'react'
 import { Routes, Route,useLocation } from "react-router-dom";
-import{Navbar} from "./components";
+import{Navbar, Sidebar} from "./components";
 import{
   Home,
   Deal,
@@ -15,6 +15,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
+     
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/deal" element={<Deal />} />

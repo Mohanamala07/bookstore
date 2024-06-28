@@ -127,37 +127,39 @@ html, body {
     padding-left: 140px;
   }
  
-  @media (max-width: 480px) {
-    .cards-container {
-        justify-content: flex-start; /* Center the cards horizontally */
-        padding: 10px; /* Reduce padding */
-    }
-    .shopping-card {
-        margin-top: 10px;
-         /* Adjust margin for better spacing */
-    }
-    .product-image {
-        height: 300px; /* Adjust image height to fit within card */
-    }
+  /* Existing CSS code remains unchanged */
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  .cards-container {
+      justify-content: center; /* Center the cards horizontally */
+      padding: 10px; /* Reduce padding */
+  }
+  .shopping-card {
+      margin-top: 10px; /* Adjust margin for better spacing */
+  }
+  .product-image {
+      height: 300px; /* Adjust image height to fit within card */
+  }
 }
 
 /* Medium screens (tablets) */
 @media (min-width: 481px) and (max-width: 768px) {
-    .cards-container {
-        justify-content: flex-start; /* Align items at the start */
-        padding: 10px; /* Reduce padding */
-    }
-    .shopping-card {
-        margin-top: 15px; /* Adjust margin for better spacing */
-    }
+  .cards-container {
+      justify-content: flex-start; /* Align items at the start */
+      padding: 10px; /* Reduce padding */
+  }
+  .shopping-card {
+      margin-top: 15px; /* Adjust margin for better spacing */
+  }
 }
 
 /* Large screens (desktops) */
 @media (min-width: 769px) {
-    .cards-container {
-        justify-content: flex-start; /* Center the cards horizontally */
-    }
-    .shopping-card {
-        margin-top: 20px; /* Keep the top margin consistent */
-    }
+  .cards-container {
+      justify-content: flex-start; /* Center the cards horizontally */
+  }
+  .shopping-card {
+      margin-top: 20px; /* Keep the top margin consistent */
+  }
 }
