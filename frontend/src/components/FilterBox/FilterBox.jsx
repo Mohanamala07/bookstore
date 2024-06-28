@@ -1,158 +1,167 @@
 import React, { useState } from 'react';
-import { Range } from 'react-range';
 import './FilterBox.css';
 
-// Sample genres and authors for the filters
-const genres = ['Fiction', 'Non-Fiction', 'Science Fiction', 'Fantasy', 'Biography'];
-const authors = ['J.K. Rowling', 'George R.R. Martin', 'Isaac Asimov', 'Jane Austen'];
-const lang =['Tamil','English','Hindi'];
+const FilterBox = () => {
+  const [isGenreOpen, setIsGenreOpen] = useState(false);
+  const [isPriceOpen, setIsPriceOpen] = useState(false);
+  const [isBindingOpen, setIsBindingOpen] = useState(false);
+  const [isConditionOpen, setIsConditionOpen] = useState(false);
+  const [isFilterBoxVisible, setIsFilterBoxVisible] = useState(false);
 
-const FilterBox = ({ onFilterChange }) => {
-    // State to hold the current filter selections
-    const [selectedGenre, setSelectedGenre] = useState('');
-    const [selectedAuthor, setSelectedAuthor] = useState('');
-    const [selectedLang, setSelectedLang]= useState('');
-    const [priceRange, setPriceRange] = useState([0, 100]); // Default price range
-    
-    const [publicationDate, setPublicationDate] = useState('');
+  const toggleGenre = () => {
+    setIsGenreOpen(!isGenreOpen);
+  };
 
-    // Handle change in any filter and pass it to parent component
-    const handleFilterChange = () => {
-        onFilterChange({
-            genre: selectedGenre,
-            author: selectedAuthor,
-            lang: selectedLang,
-            minPrice: priceRange[0],
-            maxPrice: priceRange[1],
-            
-            publicationDate
-        });
-    };
+  const togglePrice = () => {
+    setIsPriceOpen(!isPriceOpen);
+  };
 
-    const handlePriceChange = (values) => {
-        setPriceRange(values);
-        handleFilterChange();
-    };
+  const toggleBinding = () => {
+    setIsBindingOpen(!isBindingOpen);
+  };
 
-    return (
+  const toggleCondition = () => {
+    setIsConditionOpen(!isConditionOpen);
+  };
+
+  const toggleFilterBox = () => {
+    setIsFilterBoxVisible(!isFilterBoxVisible);
+  };
+
+  return (
+    <div>
+      <div className="filter-buttons">
+        <button onClick={toggleFilterBox}>
+          {isFilterBoxVisible ? (
+            <span>
+              Hide filters <i className="arrow open">▶</i>
+            </span>
+          ) : (
+            <span>
+              Show filters <i className="arrow">▶</i>
+            </span>
+          )}
+        </button>
+        {/* <button>
+          Best selling <i className="arrow">▶</i>
+        </button> */}
+      </div>
+      {isFilterBoxVisible && (
         <div className="filter-box">
-            <h2>Filter Books</h2>
-            {/* Genre Filter */}
-            <div className="filter-section">
-                <label htmlFor="genre">Genre</label>
-                <select
-                    id="genre"
-                    value={selectedGenre}
-                    onChange={(e) => {
-                        setSelectedGenre(e.target.value);
-                        handleFilterChange();
-                    }}
-                >
-                    <option value="">All Genres</option>
-                    {genres.map((genre) => (
-                        <option key={genre} value={genre}>
-                            {genre}
-                        </option>
-                    ))}
-                </select>
+          <div className="filter-section">
+            <div className="filter-header" onClick={toggleGenre}>
+              <span>Genre</span>
+              <span className={`arrow ${isGenreOpen ? 'open' : ''}`}>▶</span>
             </div>
-
-            {/* Author Filter */}
-            <div className="filter-section">
-                <label htmlFor="lang">Language</label>
-                <select
-                    id="lang"
-                    value={selectedLang}
-                    onChange={(e) => {
-                        setSelectedLang(e.target.value);
-                        handleFilterChange();
-                    }}
-                >
-                    <option value="">Language</option>
-                    {lang.map((lang) => (
-                        <option key={lang} value={lang}>
-                            {lang}
-                        </option>
-                    ))}
-                </select>
+            {isGenreOpen && (
+              <div className="filter-content">
+                <label>
+                  <input type="checkbox" /> Adventure
+                </label>
+                <label>
+                  <input type="checkbox" /> Amar Chitra Katha
+                </label>
+                <label>
+                  <input type="checkbox" /> American Comics
+                </label>
+                <label>
+                  <input type="checkbox" /> Art, Painting & Music CT
+                </label>
+                <label>
+                  <input type="checkbox" /> BC fiction
+                </label>
+                <label>
+                  <input type="checkbox" /> BC fantasy
+                </label>
+                <label>
+                  <input type="checkbox" /> BC historical
+                </label>
+                <label>
+                  <input type="checkbox" /> BC mystery thriller
+                </label>
+                <label>
+                  <input type="checkbox" /> BC non fiction
+                </label>
+                <div className="show-more">SHOW MORE</div>
+              </div>
+            )}
+          </div>
+          <div className="filter-section">
+            <div className="filter-header" onClick={togglePrice}>
+              <span>Price</span>
+              <span className={`arrow ${isPriceOpen ? 'open' : ''}`}>▶</span>
             </div>
-            <div className="filter-section">
-                <label htmlFor="author">Author</label>
-                <select
-                    id="author"
-                    value={selectedAuthor}
-                    onChange={(e) => {
-                        setSelectedAuthor(e.target.value);
-                        handleFilterChange();
-                    }}
-                >
-                    <option value="">All Authors</option>
-                    {authors.map((author) => (
-                        <option key={author} value={author}>
-                            {author}
-                        </option>
-                    ))}
-                </select>
+            {isPriceOpen && (
+              <div className="filter-content">
+                <label>
+                  <input type="checkbox" /> Under $10
+                </label>
+                <label>
+                  <input type="checkbox" /> $10 - $20
+                </label>
+                <label>
+                  <input type="checkbox" /> $20 - $30
+                </label>
+                <label>
+                  <input type="checkbox" /> $30 - $40
+                </label>
+                <label>
+                  <input type="checkbox" /> $40 and above
+                </label>
+              </div>
+            )}
+          </div>
+          <div className="filter-section">
+            <div className="filter-header" onClick={toggleBinding}>
+              <span>Binding</span>
+              <span className={`arrow ${isBindingOpen ? 'open' : ''}`}>▶</span>
             </div>
-
-
-            {/* Price Range Slider */}
-            <div className="filter-section">
-                <label>Price Range (Rs)</label>
-                <Range
-                    step={1}
-                    min={0}
-                    max={100}
-                    values={priceRange}
-                    onChange={(values) => handlePriceChange(values)}
-                    renderTrack={({ props, children }) => (
-                        <div
-                            {...props}
-                            style={{
-                                ...props.style,
-                                height: '6px',
-                                width: '100%',
-                                backgroundColor: '#ccc'
-                            }}
-                        >
-                            {children}
-                        </div>
-                    )}
-                    renderThumb={({ props }) => (
-                        <div
-                            {...props}
-                            style={{
-                                ...props.style,
-                                height: '20px',
-                                width: '20px',
-                                borderRadius: '50%',
-                                backgroundColor: 'grey'
-                            }}
-                        />
-                    )}
-                />
-                <div className="price-range-values">
-                    <span>Rs {priceRange[0]}</span> - <span>Rs {priceRange[1]}</span>
-                </div>
+            {isBindingOpen && (
+              <div className="filter-content">
+                <label>
+                  <input type="checkbox" /> Hardcover
+                </label>
+                <label>
+                  <input type="checkbox" /> Paperback
+                </label>
+                <label>
+                  <input type="checkbox" /> Spiral Bound
+                </label>
+                <label>
+                  <input type="checkbox" /> Loose Leaf
+                </label>
+              </div>
+            )}
+          </div>
+          <div className="filter-section">
+            <div className="filter-header" onClick={toggleCondition}>
+              <span>Condition</span>
+              <span className={`arrow ${isConditionOpen ? 'open' : ''}`}>▶</span>
             </div>
-
-
-
-            {/* Publication Date Filter */}
-            <div className="filter-section">
-                <label htmlFor="publication-date">Publication Date</label>
-                <input
-                    type="date"
-                    id="publication-date"
-                    value={publicationDate}
-                    onChange={(e) => {
-                        setPublicationDate(e.target.value);
-                        handleFilterChange();
-                    }}
-                />
-            </div>
+            {isConditionOpen && (
+              <div className="filter-content">
+                <label>
+                  <input type="checkbox" /> New
+                </label>
+                <label>
+                  <input type="checkbox" /> Like New
+                </label>
+                <label>
+                  <input type="checkbox" /> Very Good
+                </label>
+                <label>
+                  <input type="checkbox" /> Good
+                </label>
+                <label>
+                  <input type="checkbox" /> Acceptable
+                </label>
+              </div>
+            )}
+          </div>
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default FilterBox;
