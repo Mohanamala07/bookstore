@@ -7,8 +7,10 @@ import{
   Home,
   Deal,
   Comic,
-  Combo
+  Combo,
+  RequestPage
 }from "./pages";
+
 const App = () => {
   const location = useLocation();
   useEffect(()=>{
@@ -24,7 +26,7 @@ const App = () => {
       <Route path="/deal" element={<Deal />} />
       <Route path="/combo" element={<Combo />} />
       <Route path="/comic" element={<Comic />} />
-
+      <Route path="/Request" element={<RequestPage/>} />
       </Routes>
       <Footer />
     </div>
