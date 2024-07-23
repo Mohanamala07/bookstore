@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import { Link } from 'react-router-dom';
 import './Card.css';
 import { FaStar, FaRegStar, FaRegHeart } from 'react-icons/fa';
 
@@ -16,7 +16,7 @@ const Card = ({ product }) => {
   };
 
   return (
-    <Link to={`/product/${product.id}`} className="card-link"> {/* Use Link to wrap your card */}
+    <Link to={`/product/${product.id}`} className="card-link">
       <div className="shopping-card">
         <img src={product.image} alt={product.title} className="product-image" />
         <div className="card-details">

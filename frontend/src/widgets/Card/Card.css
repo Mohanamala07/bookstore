@@ -63,7 +63,8 @@ html, body {
   .product-title {
     font-size: 1em; /* Adjusted font size */
     font-weight: bold; /* Make title bold */
-    margin: 5px 0; /* Reduced space around title */
+    margin: 5px 0; 
+    color:darkgoldenrod;/* Reduced space around title */
   }
   
   /* Styling for the product description */
@@ -128,7 +129,7 @@ html, body {
 /* Small screens (phones) */
 @media (max-width: 480px) {
   .cards-container {
-      justify-content: center; /* Center the cards horizontally */
+      justify-content: flex-start; /* Center the cards horizontally */
       padding: 10px; /* Reduce padding */
   }
   .shopping-card {
