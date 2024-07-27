@@ -6,10 +6,10 @@ const navItems = [
         title: "Shop By Category",
         basepath: "javascript:void(0);",
         links: [
-            { path: "/", link:"Home"},
-      { path: "/about-institution", link: "Institution" },
-      { path: "/vision", link: "Vision, Mission & Core values" },
-      { path: "/milestones", link: "Milestones" },
+            { path: "/", link:"Fiction"},
+      { path: "/about-institution", link: "Non-Fiction" },
+      { path: "/vision", link: "Comics" },
+      { path: "/milestones", link: "Children Books" },
         ],
     },
     
