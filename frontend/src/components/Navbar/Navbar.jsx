@@ -101,7 +101,10 @@ const Navbar = () => {
               {item.title === "Shop By Category" ||
               item.title === "Shop By Store" ||
               item.title === "Text Books" ||
-              item.title === "Harry Potter" ? (
+              item.title === "Harry Potter" ||
+              item.title === "Only 99"||
+              item.title === "Today's Deal" ||
+              item.title ==="Request a Book" ? (
                 <Dropdown
                   type={item.type}
                   title={item.title}
